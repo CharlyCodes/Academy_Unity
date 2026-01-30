@@ -1,30 +1,27 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float jumpForce;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private Rigidbody2D rb;
 
-    // Update is called once per frame
-    void Update()
+    private Vector2 moveInput;
+
+    private void Start()
     {
-        Move();
-        Jump();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    void Move()
+    private void Update()
     {
-        //TODO: Movimiento del jugador
+        rb.linearVelocity = moveInput * moveSpeed;
     }
 
-    void Jump()
+    public void Move(InputAction.CallbackContext context)
     {
-        // TODO: Salto o acción del jugador
-    }
-
-    void Dash()
-    {
-        //TODO: Dash o acción del jugador
+        moveInput = context.ReadValue<Vector2>();
     }
 
 }
