@@ -5585,6 +5585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Skelleton
       objectReference: {fileID: 0}
+    - target: {fileID: 8479772585005713354, guid: a7fc4d3a93ad22843bf67b4fcfaec986, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ff196f0ac9f3a1b4fa6c22acb9072761, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

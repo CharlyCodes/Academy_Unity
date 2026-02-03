@@ -167,10 +167,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2808558282100097249, guid: 1600781e1d6e5b44ab9a247094613697, type: 3}
+      propertyPath: useSpriteFlip
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349009906344832213, guid: 1600781e1d6e5b44ab9a247094613697, type: 3}
+      propertyPath: m_Size.x
+      value: 0.62822723
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349009906344832213, guid: 1600781e1d6e5b44ab9a247094613697, type: 3}
+      propertyPath: m_Size.y
+      value: 0.88849205
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349009906344832213, guid: 1600781e1d6e5b44ab9a247094613697, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0008094311
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349009906344832213, guid: 1600781e1d6e5b44ab9a247094613697, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.06474528
+      objectReference: {fileID: 0}
     - target: {fileID: 6065264859497461530, guid: 1600781e1d6e5b44ab9a247094613697, type: 3}
       propertyPath: m_Name
       value: Player_Bunny
       objectReference: {fileID: 0}
+    - target: {fileID: 8479772585005713354, guid: 1600781e1d6e5b44ab9a247094613697, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ce9d95456aedade41af0714a7bf07fb4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
