@@ -1,30 +1,61 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float jumpForce;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private bool useSpriteFlip = true;
 
-    // Update is called once per frame
-    void Update()
+    private Vector2 moveInput;
+    private Animator animator;
+    private Transform spriteTransform;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
+        spriteTransform = animator.transform;
+    }
+
+    private void FixedUpdate()
     {
         Move();
-        Jump();
+        UpdateAnimation();
+        HandleFlip();
     }
 
-    void Move()
+    private void Update()
     {
-        //TODO: Movimiento del jugador
+        //rb.linearVelocity = moveInput * moveSpeed;
     }
 
-    void Jump()
+    public void Move(InputAction.CallbackContext context)
     {
-        // TODO: Salto o acción del jugador
+        moveInput = context.ReadValue<Vector2>();
     }
 
-    void Dash()
+    private void Move()
     {
-        //TODO: Dash o acción del jugador
+        rb.linearVelocity = moveInput * moveSpeed;
     }
 
+    private void UpdateAnimation()
+    {
+        bool isMoving = moveInput != Vector2.zero;
+        animator.SetBool("isMoving", isMoving);
+        animator.SetFloat("moveX", moveInput.x);
+        animator.SetFloat("moveY", moveInput.y);
+    }
+
+    private void HandleFlip()
+    {
+        if(!useSpriteFlip) return;
+        if (moveInput.x == 0) return;
+
+        Vector3 scale = spriteTransform.localScale;
+        scale.x = Mathf.Sign(moveInput.x);
+        spriteTransform.localScale = scale;
+    }
 }
